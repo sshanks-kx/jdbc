@@ -224,7 +224,7 @@ public class co implements Connection{
  public PreparedStatement prepareStatement(String s,int resultSetType,int resultSetConcurrency)throws SQLException{return new ps(this,s);}
  public CallableStatement prepareCall(String s,int resultSetType,int resultSetConcurrency)throws SQLException{return new cs(this,s);}
  public Map<String, Class<?>> getTypeMap()throws SQLException{return Collections.emptyMap();}
- public void setTypeMap(Map map)throws SQLException{ /* not supported */ }
+ public void setTypeMap(Map<String,Class<?>> map)throws SQLException{ /* not supported */ }
 //3
  public void setHoldability(int holdability)throws SQLException{h=holdability;}
  public int getHoldability()throws SQLException{return h;}
@@ -493,7 +493,7 @@ public class cs extends ps implements CallableStatement{
  public byte[]getBytes(int i)throws SQLException{return new byte[0];}
  public Object getObject(int i)throws SQLException{return null;}
  public BigDecimal getBigDecimal(int parameterIndex)throws SQLException{return qNotSupportedObj();}
- public Object getObject(int i,Map map)throws SQLException{return qNotSupportedObj();}
+ public Object getObject(int i,Map<String,Class<?>> map)throws SQLException{return qNotSupportedObj();}
  public Ref getRef(int i)throws SQLException{return qNotSupportedObj();}
  public Blob getBlob(int i)throws SQLException{return qNotSupportedObj();}
  public Clob getClob(int i)throws SQLException{return qNotSupportedObj();}
@@ -546,7 +546,7 @@ public class cs extends ps implements CallableStatement{
  public Timestamp getTimestamp(String parameterName)throws SQLException{return null;}
  public Object getObject(String parameterName)throws SQLException{return null;}
  public BigDecimal getBigDecimal(String parameterName)throws SQLException{return null;}
- public Object getObject(String parameterName,Map map)throws SQLException{return null;}
+ public Object getObject(String parameterName,Map<String,Class<?>> map)throws SQLException{return null;}
  public Ref getRef(String parameterName)throws SQLException{return null;}
  public Blob getBlob(String parameterName)throws SQLException{return null;}
  public Clob getClob(String parameterName)throws SQLException{return null;}
@@ -803,12 +803,12 @@ public class rs implements ResultSet{
  public void moveToInsertRow()throws SQLException{qNotSupported();}
  public void moveToCurrentRow()throws SQLException{qNotSupported();}
  public Statement getStatement()throws SQLException{return st;}
- public Object getObject(int i,Map map)throws SQLException{return qNotSupportedObj();}
+ public Object getObject(int i,Map<String,Class<?>> map)throws SQLException{return qNotSupportedObj();}
  public Ref getRef(int i)throws SQLException{return qNotSupportedObj();}
  public Blob getBlob(int i)throws SQLException{return qNotSupportedObj();}
  public Clob getClob(int i)throws SQLException{return qNotSupportedObj();}
  public Array getArray(int i)throws SQLException{return qNotSupportedObj();}
- public Object getObject(String colName,Map map)throws SQLException{return qNotSupportedObj();}
+ public Object getObject(String colName,Map<String,Class<?>> map)throws SQLException{return qNotSupportedObj();}
  public Ref getRef(String colName)throws SQLException{return qNotSupportedObj();}
  public Blob getBlob(String colName)throws SQLException{return qNotSupportedObj();}
  public Clob getClob(String colName)throws SQLException{return qNotSupportedObj();}
